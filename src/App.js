@@ -14,12 +14,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://127.0.0.1:8000/todos/')
+    axios.get('/todos/')
     .then(res => this.setState({ todos: res.data }))
   }
 
   // componentDidMount() {
-  //   axios.get('http://127.0.0.1:8000/todos/')
+  //   axios.get('http://118.24.162.159:8000/todos/')
   //   .then(function (response) {
   //     console.log(response.data);
   //     console.log(response.status);
@@ -39,13 +39,13 @@ class App extends React.Component {
 
 // Delete Todo
 delTodo = (id) => {
-  axios.delete(`http://127.0.0.1:8000/todos/del/?id=${id}`)
+  axios.delete(`/todos/del/?id=${id}`)
     .then(res => this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] }));
 }
 
 //Add Todo
 addTodo = (title) => {
-  axios.post('http://127.0.0.1:8000/todos/add/', {
+  axios.post('/todos/add/', {
     title,
     completed: false
   })
